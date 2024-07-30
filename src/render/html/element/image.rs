@@ -83,7 +83,7 @@ fn render_image_element(
                 ctx.html().img().attr(attr!(
                     "class" => "wj-image",
                     "src" => url,
-                    "crossorigin";;
+                    "";;
                     attributes
                 ));
             };
