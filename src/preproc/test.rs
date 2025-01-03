@@ -2,7 +2,7 @@
  * preproc/test.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -31,7 +31,7 @@ where
         string.clear();
         string.push_str(input);
 
-        info!("Testing {filter_name} substitution");
+        debug!("Testing {filter_name} substitution");
 
         substitute(&mut string);
 

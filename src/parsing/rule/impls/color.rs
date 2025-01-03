@@ -2,7 +2,7 @@
  * parsing/rule/impls/color.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -35,7 +35,7 @@ pub const RULE_COLOR: Rule = Rule {
 fn try_consume_fn<'r, 't>(
     parser: &mut Parser<'r, 't>,
 ) -> ParseResult<'r, 't, Elements<'t>> {
-    info!("Trying to create color container");
+    debug!("Trying to create color container");
     check_step(parser, Token::Color)?;
 
     // The pattern for color is:
@@ -53,7 +53,7 @@ fn try_consume_fn<'r, 't>(
         None,
     )?;
 
-    debug!("Retrieved color descriptor, now building container ('{color}')");
+    trace!("Retrieved color descriptor, now building container ('{color}')");
 
     // Build color container
     let (elements, errors, paragraph_safe) = collect_consume(

@@ -2,7 +2,7 @@
  * parsing/rule/impls/block/blocks/module/modules/page_tree.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -31,7 +31,7 @@ fn parse_fn<'r, 't>(
     name: &'t str,
     mut arguments: Arguments<'t>,
 ) -> ParseResult<'r, 't, ModuleParseOutput<'t>> {
-    info!("Parsing PageTree module");
+    debug!("Parsing PageTree module");
     assert_module_name(&MODULE_PAGE_TREE, name);
 
     let root = arguments.get("root");

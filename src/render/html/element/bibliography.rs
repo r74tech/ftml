@@ -2,7 +2,7 @@
  * render/html/element/bibliography.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -22,7 +22,7 @@ use super::prelude::*;
 use crate::tree::Bibliography;
 
 pub fn render_bibcite(ctx: &mut HtmlContext, label: &str, brackets: bool) {
-    info!("Rendering bibliography citation (label {label}, brackets {brackets})");
+    debug!("Rendering bibliography citation (label {label}, brackets {brackets})");
 
     match ctx.get_bibliography_ref(label) {
         // Valid bibliography reference, render it
@@ -106,7 +106,7 @@ pub fn render_bibliography(
     bibliography_index: usize,
     bibliography: &Bibliography,
 ) {
-    info!(
+    debug!(
         "Rendering bibliography block (title {}, items {})",
         title.unwrap_or("<default>"),
         bibliography.slice().len(),

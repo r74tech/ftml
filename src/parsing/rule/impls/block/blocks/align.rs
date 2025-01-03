@@ -2,7 +2,7 @@
  * parsing/rule/impls/block/blocks/align.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -63,7 +63,7 @@ pub fn parse_alignment_block<'r, 't>(
     flag_score: bool,
     in_head: bool,
 ) -> ParseResult<'r, 't, Elements<'t>> {
-    info!(
+    debug!(
         "Parsing alignment block (name '{}', block-rule '{}', alignment '{}', in-head {})",
         name,
         block_rule.name,

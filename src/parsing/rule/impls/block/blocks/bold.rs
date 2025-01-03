@@ -2,7 +2,7 @@
  * parsing/rule/impls/block/blocks/bold.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -36,7 +36,7 @@ fn parse_fn<'r, 't>(
     flag_score: bool,
     in_head: bool,
 ) -> ParseResult<'r, 't, Elements<'t>> {
-    info!("Parsing bold block (name '{name}', in-head {in_head})");
+    debug!("Parsing bold block (name '{name}', in-head {in_head})");
     assert!(!flag_star, "Bold doesn't allow star flag");
     assert!(!flag_score, "Bold doesn't allow score flag");
     assert_block_name(&BLOCK_BOLD, name);

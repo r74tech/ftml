@@ -2,7 +2,7 @@
  * render/html/element/link.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -30,7 +30,7 @@ pub fn render_anchor(
     attributes: &AttributeMap,
     target: Option<AnchorTarget>,
 ) {
-    info!("Rendering anchor");
+    debug!("Rendering anchor");
 
     let target_value = match target {
         Some(target) => target.html_attr(),
@@ -55,7 +55,7 @@ pub fn render_link(
     target: Option<AnchorTarget>,
     ltype: LinkType,
 ) {
-    info!("Rendering link '{:?}' (type {})", link, ltype.name());
+    debug!("Rendering link '{:?}' (type {})", link, ltype.name());
     let handle = ctx.handle();
 
     // Add to backlinks

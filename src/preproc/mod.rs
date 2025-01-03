@@ -2,7 +2,7 @@
  * preproc/mod.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -69,7 +69,7 @@ impl Replacer {
                 ref regex,
                 replacement,
             } => {
-                debug!(
+                trace!(
                     "Running regex regular expression replacement (pattern {}, replacement {})",
                     regex.as_str(),
                     replacement,
@@ -95,7 +95,7 @@ impl Replacer {
                 begin,
                 end,
             } => {
-                debug!(
+                trace!(
                     "Running surround regular expression capture replacement (pattern {}, begin {}, end {})",
                     regex.as_str(),
                     begin,
@@ -142,9 +142,10 @@ impl Replacer {
 /// This call always succeeds. The return value designates where issues occurred
 /// to allow programmatic determination of where things were not as expected.
 pub fn preprocess(text: &mut String) {
+    info!("Beginning preprocessing of text ({} bytes)", text.len());
     whitespace::substitute(text);
     typography::substitute(text);
-    info!("Finished preprocessing of text");
+    debug!("Finished preprocessing of text ({} bytes)", text.len());
 }
 
 #[test]

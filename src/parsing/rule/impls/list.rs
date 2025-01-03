@@ -2,7 +2,7 @@
  * parsing/rule/impls/list.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -42,7 +42,7 @@ fn try_consume_fn<'r, 't>(
     parser: &mut Parser<'r, 't>,
 ) -> ParseResult<'r, 't, Elements<'t>> {
     // We don't know the list type(s) yet, so just log that we're starting
-    info!("Parsing a list");
+    debug!("Parsing a list");
 
     // Context variables
     let mut depths = Vec::new();
@@ -86,13 +86,13 @@ fn try_consume_fn<'r, 't>(
         let list_type = match get_list_type(current.token) {
             Some(ltype) => ltype,
             None => {
-                debug!("Didn't find bullet token, couldn't determine list type, ending list iteration");
+                trace!("Didn't find bullet token, couldn't determine list type, ending list iteration");
                 break;
             }
         };
         parser.step()?;
 
-        debug!("Parsing list item '{}'", list_type.name());
+        trace!("Parsing list item '{}'", list_type.name());
 
         // For now, always expect whitespace after the bullet
         let current = parser.current();

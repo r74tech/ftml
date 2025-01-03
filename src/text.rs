@@ -2,7 +2,7 @@
  * text.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -90,7 +90,7 @@ impl<'t> FullText<'t> {
     }
 
     fn slice_impl(&self, slice_kind: &'static str, start: usize, end: usize) -> &'t str {
-        info!("Extracting {slice_kind} slice ({start}-{end}) from full text");
+        debug!("Extracting {slice_kind} slice ({start}-{end}) from full text");
 
         assert!(
             start <= end,

@@ -2,7 +2,7 @@
  * render/html/element/input.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -27,7 +27,7 @@ pub fn render_radio_button(
     checked: bool,
     attributes: &AttributeMap,
 ) {
-    info!("Creating radio button (name '{name}', checked {checked})");
+    debug!("Creating radio button (name '{name}', checked {checked})");
 
     ctx.html().input().attr(attr!(
         "name" => name,
@@ -38,7 +38,7 @@ pub fn render_radio_button(
 }
 
 pub fn render_checkbox(ctx: &mut HtmlContext, checked: bool, attributes: &AttributeMap) {
-    info!("Creating checkbox (checked {checked})");
+    debug!("Creating checkbox (checked {checked})");
 
     ctx.html().input().attr(attr!(
         "type" => "checkbox",

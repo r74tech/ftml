@@ -2,7 +2,7 @@
  * parsing/token/test.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -24,7 +24,7 @@ use super::*;
 fn tokens() {
     macro_rules! test {
         ($input:expr, $expected:expr $(,)?) => {{
-            info!("Testing tokens! Input: {}", $input);
+            debug!("Testing tokens! Input: {}", $input);
 
             let expected: Vec<ExtractedToken> = $expected;
             let result = {

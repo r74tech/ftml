@@ -2,7 +2,7 @@
  * render/text/context.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -260,7 +260,7 @@ impl<'i, 'h, 'e, 't> From<TextContext<'i, 'h, 'e, 't>> for String {
     }
 }
 
-impl<'i, 'h, 'e, 't> Write for TextContext<'i, 'h, 'e, 't>
+impl<'e, 't> Write for TextContext<'_, '_, 'e, 't>
 where
     'e: 't,
 {

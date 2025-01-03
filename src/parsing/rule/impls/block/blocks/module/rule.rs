@@ -2,7 +2,7 @@
  * parsing/rule/impls/block/blocks/module/rule.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -37,7 +37,7 @@ fn parse_fn<'r, 't>(
     flag_score: bool,
     in_head: bool,
 ) -> ParseResult<'r, 't, Elements<'t>> {
-    info!("Parsing module block (in-head {in_head})");
+    debug!("Parsing module block (in-head {in_head})");
     parser.check_page_syntax()?;
     assert!(!flag_star, "Module doesn't allow star flag");
     assert!(!flag_score, "Module doesn't allow score flag");

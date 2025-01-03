@@ -2,7 +2,7 @@
  * parsing/parser_wrap.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -42,7 +42,7 @@ impl<'p, 'r, 't> ParserWrap<'p, 'r, 't> {
     }
 }
 
-impl<'p, 'r, 't> Deref for ParserWrap<'p, 'r, 't> {
+impl<'r, 't> Deref for ParserWrap<'_, 'r, 't> {
     type Target = Parser<'r, 't>;
 
     fn deref(&self) -> &Parser<'r, 't> {
@@ -50,7 +50,7 @@ impl<'p, 'r, 't> Deref for ParserWrap<'p, 'r, 't> {
     }
 }
 
-impl<'p, 'r, 't> DerefMut for ParserWrap<'p, 'r, 't> {
+impl<'r, 't> DerefMut for ParserWrap<'_, 'r, 't> {
     fn deref_mut(&mut self) -> &mut Parser<'r, 't> {
         self.parser
     }

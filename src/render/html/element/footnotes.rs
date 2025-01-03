@@ -2,7 +2,7 @@
  * render/html/element/footnotes.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -21,7 +21,7 @@
 use super::prelude::*;
 
 pub fn render_footnote(ctx: &mut HtmlContext) {
-    info!("Rendering footnote reference");
+    debug!("Rendering footnote reference");
 
     let index = ctx.next_footnote_index();
     let id = str!(index);
@@ -76,7 +76,7 @@ pub fn render_footnote(ctx: &mut HtmlContext) {
 }
 
 pub fn render_footnote_block(ctx: &mut HtmlContext, title: Option<&str>) {
-    info!(
+    debug!(
         "Rendering footnote block (title {})",
         title.unwrap_or("<default>"),
     );

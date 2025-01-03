@@ -2,7 +2,7 @@
  * render/html/element/image.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -29,7 +29,7 @@ pub fn render_image(
     alignment: Option<FloatAlignment>,
     attributes: &AttributeMap,
 ) {
-    info!(
+    debug!(
         "Rendering image element (source '{}', link {}, alignment {}, float {})",
         source.name(),
         match link {
@@ -66,7 +66,7 @@ fn render_image_element(
     alignment: Option<FloatAlignment>,
     attributes: &AttributeMap,
 ) {
-    debug!("Found URL, rendering image (value '{url}')");
+    trace!("Found URL, rendering image (value '{url}')");
 
     let (space, align_class) = match alignment {
         Some(align) => (" ", align.html_class()),
@@ -102,7 +102,7 @@ fn render_image_element(
 }
 
 fn render_image_missing(ctx: &mut HtmlContext) {
-    debug!("Image URL unresolved, missing or error");
+    trace!("Image URL unresolved, missing or error");
 
     let message = ctx
         .handle()

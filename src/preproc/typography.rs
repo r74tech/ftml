@@ -2,7 +2,7 @@
  * preproc/typography.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -68,7 +68,7 @@ static HORIZONTAL_ELLIPSIS: Lazy<Replacer> = Lazy::new(|| Replacer::RegexReplace
 /// Performs all typographic substitutions in-place in the given text
 pub fn substitute(text: &mut String) {
     let mut buffer = String::new();
-    info!("Performing typography substitutions");
+    debug!("Performing typography substitutions");
 
     macro_rules! replace {
         ($replacer:expr) => {

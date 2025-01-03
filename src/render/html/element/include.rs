@@ -2,7 +2,7 @@
  * render/html/element/include.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -28,7 +28,7 @@ pub fn render_include(
     variables: &VariableMap,
     elements: &[Element],
 ) {
-    info!("Rendering include (location {location:?})");
+    debug!("Rendering include (location {location:?})");
     ctx.variables_mut().push_scope(variables);
     render_elements(ctx, elements);
     ctx.variables_mut().pop_scope();
@@ -36,7 +36,7 @@ pub fn render_include(
 
 pub fn render_variable(ctx: &mut HtmlContext, name: &str) {
     let value = ctx.variables().get(name);
-    info!(
+    debug!(
         "Rendering variable (name '{}', value '{}'",
         name,
         value.unwrap_or("<none>"),

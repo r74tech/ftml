@@ -2,7 +2,7 @@
  * render/text/elements.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -31,7 +31,7 @@ use super::TextContext;
 use crate::tree::{ContainerType, DefinitionListItem, Element, ListItem, Tab};
 
 pub fn render_elements(ctx: &mut TextContext, elements: &[Element]) {
-    info!("Rendering elements (length {})", elements.len());
+    debug!("Rendering elements (length {})", elements.len());
 
     for element in elements {
         render_element(ctx, element);
@@ -39,7 +39,7 @@ pub fn render_elements(ctx: &mut TextContext, elements: &[Element]) {
 }
 
 pub fn render_element(ctx: &mut TextContext, element: &Element) {
-    info!("Rendering element {}", element.name());
+    debug!("Rendering element {}", element.name());
 
     match element {
         Element::Container(container) => {
@@ -106,7 +106,7 @@ pub fn render_element(ctx: &mut TextContext, element: &Element) {
                 None => format!("{{${name}}}"),
             };
 
-            info!(
+            debug!(
                 "Rendering variable (name '{}', value {})",
                 name.as_ref(),
                 value,
@@ -247,7 +247,7 @@ pub fn render_element(ctx: &mut TextContext, element: &Element) {
             elements,
             ..
         } => {
-            info!(
+            debug!(
                 "Rendering include (variables length {}, elements length {})",
                 variables.len(),
                 elements.len(),

@@ -2,7 +2,7 @@
  * parsing/result.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -44,7 +44,7 @@ where
     _text_marker: PhantomData<&'t str>,
 }
 
-impl<'r, 't, T> ParseSuccess<'r, 't, T> {
+impl<T> ParseSuccess<'_, '_, T> {
     #[inline]
     pub fn new(item: T, errors: Vec<ParseError>, paragraph_safe: bool) -> Self {
         ParseSuccess {
@@ -111,7 +111,7 @@ impl<'r, 't, T> ParseSuccess<'r, 't, T> {
     }
 }
 
-impl<'r, 't> ParseSuccess<'r, 't, Elements<'t>> {
+impl<'t> ParseSuccess<'_, 't, Elements<'t>> {
     pub fn check_partials(&self, parser: &Parser) -> Result<(), ParseError> {
         for element in &self.item {
             // This check only applies if the element is a partial.
@@ -128,7 +128,7 @@ impl<'r, 't> ParseSuccess<'r, 't, Elements<'t>> {
     }
 }
 
-impl<'r, 't> ParseSuccess<'r, 't, ()> {
+impl ParseSuccess<'_, '_, ()> {
     #[inline]
     pub fn into_errors(self) -> Vec<ParseError> {
         self.errors

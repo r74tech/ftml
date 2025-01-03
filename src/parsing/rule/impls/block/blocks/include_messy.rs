@@ -2,7 +2,7 @@
  * parsing/rule/impls/block/blocks/include_messy.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -45,7 +45,7 @@ fn parse_fn<'r, 't>(
     flag_score: bool,
     _in_head: bool,
 ) -> ParseResult<'r, 't, Elements<'t>> {
-    info!("Found invalid include-messy block");
+    debug!("Found invalid include-messy block");
     parser.check_page_syntax()?;
     assert!(!flag_star, "Include (messy) doesn't allow star flag");
     assert!(!flag_score, "Include (messy) doesn't allow score flag");

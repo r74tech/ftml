@@ -2,7 +2,7 @@
  * render/html/element/definition_list.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -22,7 +22,7 @@ use super::prelude::*;
 use crate::tree::DefinitionListItem;
 
 pub fn render_definition_list(ctx: &mut HtmlContext, items: &[DefinitionListItem]) {
-    info!("Rendering definition list (length {})", items.len());
+    debug!("Rendering definition list (length {})", items.len());
 
     ctx.html().dl().inner(|ctx| {
         for DefinitionListItem {

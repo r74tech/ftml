@@ -2,7 +2,7 @@
  * parsing/rule/impls/block/blocks/list.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -95,7 +95,7 @@ fn parse_list_block<'r, 't>(
     flag_score: bool,
     in_head: bool,
 ) -> ParseResult<'r, 't, Elements<'t>> {
-    info!(
+    debug!(
         "Parsing list block (name '{}', rule {}, list type {}, in-head {}, score {})",
         name,
         block_rule.name,
@@ -185,7 +185,7 @@ fn parse_list_item<'r, 't>(
     flag_score: bool,
     in_head: bool,
 ) -> ParseResult<'r, 't, Elements<'t>> {
-    info!(
+    debug!(
         "Parsing list item block (name '{}', in-head {}, score {})",
         name, in_head, flag_score,
     );

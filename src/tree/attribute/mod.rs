@@ -2,7 +2,7 @@
  * tree/attribute/mod.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -105,7 +105,7 @@ impl<'t> AttributeMap<'t> {
     pub fn isolate_id(&mut self, settings: &WikitextSettings) {
         if settings.isolate_user_ids {
             if let Some(value) = self.inner.get_mut("id") {
-                debug!("Found 'id' attribute, isolating value");
+                trace!("Found 'id' attribute, isolating value");
                 *value = Cow::Owned(isolate_ids(value));
             }
         }
@@ -125,7 +125,7 @@ impl<'t> AttributeMap<'t> {
     }
 }
 
-impl<'t> Debug for AttributeMap<'t> {
+impl Debug for AttributeMap<'_> {
     #[inline]
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         self.inner.fmt(f)

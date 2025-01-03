@@ -2,7 +2,7 @@
  * preproc/whitespace.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -106,7 +106,7 @@ pub fn substitute(text: &mut String) {
 
 /// In-place replaces the leading non-standard spaces (such as nbsp) on each line with standard spaces
 fn replace_leading_spaces(text: &mut String) {
-    debug!("Replacing leading non-standard spaces with regular spaces");
+    trace!("Replacing leading non-standard spaces with regular spaces");
 
     let mut offset = 0;
 

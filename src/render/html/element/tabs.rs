@@ -2,7 +2,7 @@
  * render/html/element/tabs.rs
  *
  * ftml - Library to parse Wikidot text
- * Copyright (C) 2019-2024 Wikijump Team
+ * Copyright (C) 2019-2025 Wikijump Team
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -23,7 +23,7 @@ use crate::tree::Tab;
 use std::iter;
 
 pub fn render_tabview(ctx: &mut HtmlContext, tabs: &[Tab]) {
-    info!("Rendering tabview (tabs {})", tabs.len());
+    debug!("Rendering tabview (tabs {})", tabs.len());
 
     // Generate IDs for each tab
     let button_ids = generate_ids(ctx.random(), tabs.len());
